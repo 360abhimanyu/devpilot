@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DevPilot AI helps developers explain code, debug errors, review code, and learn developer tools.">
+  <title>DevPilot AI — Your developer copilot</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="DevPilot home"><span class="brand-mark">✦</span><span>DevPilot<span class="muted">.ai</span></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" id="newChat"><span>＋</span> New session</button>
+      <div class="side-label tools-label">QUICK TOOLS</div>
+      <button class="tool-link" data-mode="explain">⌘ <span>Explain code</span></button>
+      <button class="tool-link" data-mode="debug">⌁ <span>Debug an error</span></button>
+      <button class="tool-link" data-mode="review">◇ <span>Review code</span></button>
+      <button class="tool-link" data-mode="document">▤ <span>Write documentation</span></button>
+      <button class="tool-link" data-mode="git">⑂ <span>Git assistant</span></button>
+      <button class="tool-link" data-mode="linux">▣ <span>Linux assistant</span></button>
+      <div class="sidebar-bottom">
+        <div class="avatar">DP</div><div><strong>Developer workspace</strong><small>Local session</small></div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><span class="breadcrumb">Workspace <span>/</span> <b>Assistant</b></span><span class="status"><i></i> Ready to help</span></header>
+      <section class="content">
+        <div class="hero">
+          <div class="eyebrow"><span class="spark">✦</span> YOUR AI DEVELOPER COMPANION</div>
+          <h1>Build with clarity.<br><span>Ship with confidence.</span></h1>
+          <p>Understand code, solve bugs, and level up your developer skills — one question at a time.</p>
+        </div>
+        <div class="prompt-area">
+          <div class="mode-row"><span class="mode-label">SELECT A MODE</span><span id="selectedMode" class="mode-pill">✦ Explain code</span></div>
+          <div class="mode-grid">
+            <button class="mode-card selected" data-mode="explain"><span class="mode-icon purple">⌘</span><b>Explain code</b><small>Understand code line by line</small></button>
+            <button class="mode-card" data-mode="debug"><span class="mode-icon orange">⌁</span><b>Debug an error</b><small>Find causes and fixes</small></button>
+            <button class="mode-card" data-mode="review"><span class="mode-icon blue">◇</span><b>Review code</b><small>Improve quality and safety</small></button>
+            <button class="mode-card" data-mode="document"><span class="mode-icon green">▤</span><b>Generate docs</b><small>Create clear documentation</small></button>
+            <button class="mode-card" data-mode="git"><span class="mode-icon pink">⑂</span><b>Git assistant</b><small>Commands and workflows</small></button>
+            <button class="mode-card" data-mode="linux"><span class="mode-icon teal">▣</span><b>Linux assistant</b><small>Commands and troubleshooting</small></button>
+            <button class="mode-card" data-mode="learn"><span class="mode-icon yellow">✧</span><b>Learn a concept</b><small>Examples and practice tasks</small></button>
+          </div>
+          <form id="askForm" class="composer">
+            <label for="prompt">WHAT ARE YOU WORKING ON?</label>
+            <textarea id="prompt" rows="5" maxlength="20000" placeholder="Paste code, an error message, a Git command, or a concept you want to learn…" required></textarea>
+            <div class="composer-footer"><span>Never paste passwords, API keys, or private tokens.</span><button id="submitBtn" type="submit"><span>Ask DevPilot</span> <b>↗</b></button></div>
+          </form>
+        </div>
+        <section id="resultSection" class="result-section" hidden>
+          <div class="result-head"><div><span class="eyebrow">DEVpilot RESPONSE</span><h2>Your answer</h2></div><button id="copyBtn" class="copy-btn">Copy answer</button></div>
+          <div id="resultMeta" class="result-meta"></div>
+          <article id="answer" class="answer"></article>
+        </section>
+        <footer>Made for curious developers. <span>Open source · Built to learn</span></footer>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
